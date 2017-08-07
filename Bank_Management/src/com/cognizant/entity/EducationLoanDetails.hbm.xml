@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 29, 2017 11:26:56 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="Bank_Management" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.cognizant.entity.EducationLoanDetails" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="education_loan_details">
+        <id name="educationLoanId" type="string">
+            <column length="16" name="EDUCATION_LOAN_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="accountNumber" optimistic-lock="true" type="long" unique="false">
+            <column name="ACCOUNT_NUMBER" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="eduLoanAccountNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="EDU_LOAN_ACCOUNT_NUMBER" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="eduLoanAmount" optimistic-lock="true" type="long" unique="false">
+            <column name="EDU_LOAN_AMOUNT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="eduLoanApplyDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="EDU_LOAN_APPLY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="eduLoanDuration" optimistic-lock="true" type="long" unique="false">
+            <column name="EDU_LOAN_DURATION" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fatherAnnualIncome" optimistic-lock="true" type="long" unique="false">
+            <column name="FATHER_ANNUAL_INCOME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fatherName" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="FATHER_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="courseFee" optimistic-lock="true" type="long" unique="false">
+            <column name="COURSE_FEE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="courseName" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="COURSE_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="idCardNumber" optimistic-lock="true" type="long" unique="false">
+            <column name="ID_CARD_NUMBER" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 29, 2017 11:26:56 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="Bank_Management" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.cognizant.entity.HomeLoanDetails" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="home_loan_details">
+        <id name="homeLoanId" type="string">
+            <column length="16" name="HOME_LOAN_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="accountNumber" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="ACCOUNT_NUMBER"/>
+        </property>
+        <property generated="never" lazy="false" name="homeLoanAccountNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="HOME_LOAN_ACCOUNT_NUMBER"/>
+        </property>
+        <property generated="never" lazy="false" name="loanAmount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="LOAN_AMOUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="loanApplyDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="LOAN_APPLY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="loanDuration" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="LOAN_DURATION"/>
+        </property>
+        <property generated="never" lazy="false" name="annualIncome" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="ANNUAL_INCOME"/>
+        </property>
+        <property generated="never" lazy="false" name="compName" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="COMP_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="designation" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="DESIGNATION"/>
+        </property>
+        <property generated="never" lazy="false" name="totalExp" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="TOTAL_EXP"/>
+        </property>
+        <property generated="never" lazy="false" name="expCurrentComp" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="EXP_CURRENT_COMP"/>
+        </property>
+    </class>
+</hibernate-mapping>

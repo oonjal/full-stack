@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 29, 2017 11:26:56 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="Bank_Management" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.cognizant.entity.UserDetails" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="user_details">
+        <id name="accountNumber" type="long">
+            <column name="ACCOUNT_NUMBER"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="accountType" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="ACCOUNT_TYPE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="accountHolderName" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="ACCOUNT_HOLDER_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="accountBalance" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="ACCOUNT_BALANCE"/>
+        </property>
+    </class>
+</hibernate-mapping>
