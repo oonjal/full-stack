@@ -1,0 +1,6 @@
+com\customer\registration\controllers\CustomerRegistrationController.class
+com\customer\registration\service\CustomerServiceImpl.class
+com\customer\registration\config\ApplicationSecurityConfig.class
+com\customer\registration\dao\CustomerDaoImpl.class
+com\customer\registration\model\Customer.class
+com\customer\registration\CustomerRegistrationApplication.class
