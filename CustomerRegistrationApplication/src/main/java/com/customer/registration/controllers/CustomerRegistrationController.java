@@ -33,24 +33,10 @@ public class CustomerRegistrationController {
 	public ModelAndView processRequest(@ModelAttribute("cust") Customer cust) {
 		
 		customerService.insertCustomer(cust);
-		List<Customer> customers = customerService.getAllCustomers();
-		ModelAndView model = new ModelAndView("getCustomers");
-		model.addObject("customers", customers);
-		return model;
-	}
-
-	@RequestMapping("/getCustomers")
-	public ModelAndView getCustomers() {
-		List<Customer> customers = customerService.getAllCustomers();
-		ModelAndView model = new ModelAndView("getCustomers");
+		List<Customer> customers = null;
+		ModelAndView model = new ModelAndView("success");
 		model.addObject("customers", customers);
 		return model;
 	}
 	
-	/*
-	 * @RequestMapping("/getCustomer") public ModelAndView getCustomer(String
-	 * custId) { Customer customer = customerService.getCustomerById(custId);
-	 * ModelAndView model = new ModelAndView("getCustomers");
-	 * model.addObject("customer", customer); return model; }
-	 */
 }
