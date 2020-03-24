@@ -49,4 +49,9 @@ public class CustomerDaoImpl {
 		
 	}
 
+	public void removeCustomer(Customer cust) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

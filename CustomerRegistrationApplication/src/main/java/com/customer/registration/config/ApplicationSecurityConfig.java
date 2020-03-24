@@ -20,8 +20,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/welcome")
-	            .hasAnyRole("USER").antMatchers("/getCustomers").hasAnyRole("USER")
-	            .antMatchers("/addCustomer").hasAnyRole("USER").anyRequest().authenticated().and().formLogin()
+	            .hasAnyRole("USER").antMatchers("/getCustomers")
+	            .hasAnyRole("USER").antMatchers("/addCustomer")
+	            .hasAnyRole("USER").antMatchers("/removeCustomer")
+	            .hasAnyRole("USER").antMatchers("/getFaqs")
+	            .hasAnyRole("USER").antMatchers("/getInfo")
+	            .hasAnyRole("USER").anyRequest().authenticated().and().formLogin()
 	            .permitAll().and().logout(logout -> logout.logoutSuccessUrl("/welcome"));
 
 	        http.csrf().disable();

@@ -26,4 +26,8 @@ public class CustomerServiceImpl {
 		Customer customer = customerDaoImpl.getCustomerById(empId);
 		return customer;
 	}
+
+	public void removeCustomer(Customer cust) {
+		customerDaoImpl.removeCustomer(cust);
+	}
 }

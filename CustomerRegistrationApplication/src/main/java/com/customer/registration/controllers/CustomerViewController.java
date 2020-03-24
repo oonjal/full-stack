@@ -13,10 +13,9 @@ import com.customer.registration.service.CustomerServiceImpl;
 @RestController
 public class CustomerViewController {
 
-
 	@Autowired
 	CustomerServiceImpl customerService;
-	
+
 	@RequestMapping("/getCustomers")
 	public ModelAndView getCustomers() {
 		List<Customer> customers = customerService.getAllCustomers();
@@ -24,11 +23,13 @@ public class CustomerViewController {
 		model.addObject("customers", customers);
 		return model;
 	}
-	
-	/*
-	 * @RequestMapping("/getCustomer") public ModelAndView getCustomer(String
-	 * custId) { Customer customer = customerService.getCustomerById(custId);
-	 * ModelAndView model = new ModelAndView("getCustomers");
-	 * model.addObject("customer", customer); return model; }
-	 */
+
+	@RequestMapping("/getCustomer")
+	public ModelAndView getCustomer(String custId) {
+		Customer customer = customerService.getCustomerById(custId);
+		ModelAndView model = new ModelAndView("getCustomers");
+		model.addObject("customer", customer);
+		return model;
+	}
+
 }
