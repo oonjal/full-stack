@@ -1,0 +1,43 @@
+Sub Button1_Click()
+    Dim conn As New ADODB.Connection
+    Dim iRowNo As Integer
+    Dim sFirstName, sLastName As String
+
+    With Sheets("Sheet1")
+
+        'Open a connection to SQL Server
+        conn.Open "DRIVER={MySQL ODBC 8.0 Unicode Driver};" & _
+        "SERVER=localhost;" & _
+        "DATABASE=book;" & _
+        "USER=root;" & _
+        "PASSWORD=password;" & _
+        "Option=3"
+        
+        MsgBox "Connected"
+
+        'Skip the header row
+        iRowNo = 2
+
+        'Loop until empty cell in CustomerId
+        Do Until .Cells(iRowNo, 1) = ""
+            stitle = .Cells(iRowNo, 1)
+            sauthor = .Cells(iRowNo, 2)
+            sprice = .Cells(iRowNo, 3)
+
+            'Generate and execute sql statement
+            ' to import the excel rows to SQL Server table
+            conn.Execute "IF EXISTS (SELECT 1 FROM tutorial WHERE title = '" & stitle & "' and author = '" & sauthor & "') " & _
+            "INSERT INTO tutorial (title, author,price) " & _
+         "VALUES ('" & stitle & "', '" & sauthor & "', '" & sprice & "')"
+
+            iRowNo = iRowNo + 1
+        Loop
+
+        MsgBox "Customers imported."
+
+        conn.Close
+        Set conn = Nothing
+
+    End With
+
+End Sub
