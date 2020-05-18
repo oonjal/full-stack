@@ -1,0 +1,60 @@
+Sub TestSQLQueries()
+
+    'GetDataFromSQLServer "SELECT * FROM tutorial ORDER BY title ASC"
+    
+    GetDataFromSQLServer
+    
+End Sub
+
+Sub GetDataFromSQLServer()
+
+    Dim cn As ADODB.Connection
+    Dim rs As ADODB.Recordset
+    
+    Set cn = New ADODB.Connection
+    
+     cn.Open "DRIVER={MySQL ODBC 8.0 Unicode Driver};" & _
+        "SERVER=localhost;" & _
+        "DATABASE=book;" & _
+        "USER=root;" & _
+        "PASSWORD=password;" & _
+        "Option=3"
+        
+        MsgBox "Connected"
+    
+    Set rs = New ADODB.Recordset
+    
+    rs.ActiveConnection = cn
+    rs.Source = "tutorial"
+    rs.CursorType = adOpenForwardOnly
+    rs.LockType = adLockReadOnly
+    
+    rs.Open
+    
+    WriteDataToWorksheet rs
+    
+    rs.Close
+    cn.Close
+    
+End Sub
+
+Sub WriteDataToWorksheet(ResultSet As ADODB.Recordset)
+
+    Dim ws As Worksheet
+    Dim f As ADODB.Field
+    Dim i As Integer
+    
+    Set ws = Worksheets.Add
+    ws.Select
+    
+    For Each f In ResultSet.Fields
+        i = i + 1
+        ws.Cells(1, i).Value = f.Name
+    Next f
+
+    Range("A2").CopyFromRecordset ResultSet
+    
+    Range("A1").CurrentRegion.WrapText = False
+    Range("A1").CurrentRegion.EntireColumn.AutoFit
+    
+End Sub

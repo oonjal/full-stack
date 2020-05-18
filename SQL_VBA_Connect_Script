@@ -1,0 +1,21 @@
+Sub ConnectToSQLServer()
+
+    Dim cn As ADODB.Connection
+        
+    Set cn = New ADODB.Connection
+	
+    'Try MySQL ODBC Your_Version_Number Driver"
+	'Try running odbcad32 in cmd prompt"
+	
+     cn.Open "DRIVER={MySQL ODBC 8.0 Unicode Driver};" & _
+        "SERVER=localhost;" & _
+        "DATABASE=book;" & _
+        "USER=root;" & _
+        "PASSWORD=password;" & _
+        "Option=3"
+        
+        MsgBox "Connected"
+    
+     cn.Close
+    
+End Sub
